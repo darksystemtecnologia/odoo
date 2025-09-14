@@ -10,7 +10,6 @@ echo Database is now available
 
 exec odoo \
     --http-port="${PORT}" \
-    --init=all \
     --proxy-mode \
     --db_host="${ODOO_DATABASE_HOST}" \
     --db_port="${ODOO_DATABASE_PORT}" \
