@@ -12,7 +12,6 @@ exec odoo \
     --http-port="${PORT}" \
     --init=all \
     --proxy-mode \
-    --country="America/Sao_Paulo" \
     --language="pt_BR"
     --db_host="${ODOO_DATABASE_HOST}" \
     --db_port="${ODOO_DATABASE_PORT}" \
