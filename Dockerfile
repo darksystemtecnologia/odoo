@@ -2,7 +2,7 @@
 FROM odoo:19
 
 # Copiamos nosso arquivo de configuração customizado para ler variáveis do Railway
-COPY ./addons/ /mnt/extra-addons/
+COPY ./addons/ /var/lib/odoo/addons_path
 
 # Railway define automaticamente a variável $PORT
 EXPOSE 8069
