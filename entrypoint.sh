@@ -8,10 +8,13 @@ while ! nc -z ${ODOO_DATABASE_HOST} ${ODOO_DATABASE_PORT} 2>&1; do sleep 1; done
 
 echo Database is now available
 
-# 1) Migração de schema (uma passada)
-if [ "${ODOO_RUN_MIGRATION:-1}" = "1" ]; then
-  echo "Running one-shot module upgrade (-u all)..."
-  odoo -c /etc/odoo/odoo.conf -u all --stop-after-init
+# MIGRAÇÃO: uma passada e sai
+if [ "${ODOO_RUN_MIGRATION:-0}" = "1" ]; then
+  echo "Running DB migration (Odoo -u base,web,auth_totp)..."
+  odoo -c /etc/odoo/odoo.conf \
+       -d "${ODOO_DATABASE_NAME}" \
+       -u base,web,auth_totp \
+       --stop-after-init
 fi
 
 exec odoo \
