@@ -15,4 +15,6 @@ exec odoo \
     --db_port="${ODOO_DATABASE_PORT}" \
     --db_user="${ODOO_DATABASE_USER}" \
     --db_password="${ODOO_DATABASE_PASSWORD}" \
+    --db-filter="^${ODOO_DATABASE_NAME}$" \
+    --list-db=False \
     --database="${ODOO_DATABASE_NAME}" 2>&1
